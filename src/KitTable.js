@@ -1,25 +1,10 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 
 class KitTable extends Component{
-    constructor(props) {
-        super(props)
-        this.state= {
-          kit: [{
-            name:'tent',
-            checkedIn:true
-          }, {
-            name:'stove',
-            checkedIn:false
-          },{
-            name:'marquee',
-            checkedIn:true
-          }]
-        }
-      }
-    
-     
+
        renderRows() {
-        return this.state.kit.map(kit=>(
+        return this.props.kit.map(kit=>(
           <tr key={kit.name}>
             <td>{kit.name}</td>
             <td>{kit.checkedIn ? 'Yes' : 'No'}</td>
@@ -45,4 +30,6 @@ class KitTable extends Component{
 }
 
 
-export default KitTable;
+export default connect((state)=>({
+  kit: state
+}),null)(KitTable)
