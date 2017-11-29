@@ -5,7 +5,7 @@ class KitTable extends Component{
 
        renderRows() {
         return this.props.kit.map(kit=>(
-          <tr key={kit.name}>
+          <tr key={kit._id}>
             <td>{kit.name}</td>
             <td>{kit.checkedIn ? 'Yes' : 'No'}</td>
           </tr>
